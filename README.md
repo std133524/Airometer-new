@@ -1,3 +1,7 @@
+# Readme 
+# This is a forked version for doing a university project
+
+
 # Airometer
 
 ### 3rd place🥉 Winner at Hack You Way Hackathon organised by IIC TMSL ✨

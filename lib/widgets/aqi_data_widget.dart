@@ -1,8 +1,11 @@
 import 'package:air_quality_app/model/air_quality/air_quality.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'dart:math';
 //import 'package:percent_indicator/circular_percent_indicator.dart';
 //import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class AQIDataWidget extends StatelessWidget {
   final AirQuality airQuality;
@@ -10,16 +13,18 @@ class AQIDataWidget extends StatelessWidget {
   const AQIDataWidget({Key? key, required this.airQuality}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
     int aqi = airQuality.list![0].main!.aqi!;
-    double aqiPercent = (aqi) / 5;
+
+    aqi = Random().nextInt(5) + 1;
+    double aqiPercent = aqi / 5;
 
     return Container(
       alignment: Alignment.center,
       child:
       CircularPercentIndicator(
         radius: 120,
-        lineWidth: 20,
+        lineWidth: 15,
         animation: true,
         animationDuration: 2000,
         startAngle: 185,
@@ -33,7 +38,7 @@ class AQIDataWidget extends StatelessWidget {
             SizedBox(height: 120, width: 120, child: aqiImage(aqi)),
             Text(
               aqiText(aqi),
-              style: TextStyle(color: Colors.grey.shade800, fontSize: 18),
+              style: TextStyle(color: Colors.grey.shade800, fontSize: 15),
             ),
           ],
         ),
@@ -63,17 +68,19 @@ class AQIDataWidget extends StatelessWidget {
   String aqiText(int aqi) {
     switch (aqi) {
       case 1:
-        return 'Good';
+        return 'Καλή:1';
       case 2:
-        return 'Fair';
+        return 'Μέτρια:2 ';
       case 3:
-        return 'Moderate';
+        return 'Ανθυγιεινή:3';
       case 4:
-        return 'Poor';
+        return 'Πολύ Ανθυγιεινή:4';
       case 5:
-        return 'Very Poor';
+        return 'Επικίνδυνη!:5';
       default:
         return 'AQI';
     }
   }
+
+
 }

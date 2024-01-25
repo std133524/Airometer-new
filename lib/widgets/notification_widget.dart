@@ -26,6 +26,7 @@ class _BGServiceSwitchState extends State<BGServiceSwitch> {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
       child: GestureDetector(
@@ -41,6 +42,7 @@ class _BGServiceSwitchState extends State<BGServiceSwitch> {
           });
         },
         child: Container(
+          /*
             padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.only(left: 10, right: 10, bottom: 15),
             width: double.infinity,
@@ -52,8 +54,10 @@ class _BGServiceSwitchState extends State<BGServiceSwitch> {
                 child: Text(
               (isRunning) ? textEnable : textDisable,
               style: const TextStyle(color: Colors.white, fontSize: 16),
-            ))),
+            ))*/),
+
       ),
     );
+
   }
 }

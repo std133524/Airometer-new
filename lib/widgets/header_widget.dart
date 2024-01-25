@@ -36,6 +36,10 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           place.street)!;
       state = (place.administrativeArea ?? place.subAdministrativeArea)!;
       country = place.country!;
+
+      city = state = country = date =  "";
+      city = "Σχολικό Συγκρότημα 1/Ποιότητα Αέρα";
+
     });
   }
 
@@ -45,11 +49,11 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       children: [
         Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
-          alignment: Alignment.topLeft,
+          alignment: Alignment.topCenter,
           child: Text(
             city,
             style: const TextStyle(
-              fontSize: 35,
+              fontSize: 20,
               color: Colors.black,
             ),
           ),
@@ -58,7 +62,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           margin: const EdgeInsets.only(left: 20, right: 20),
           alignment: Alignment.topLeft,
           child: Text(
-            '$state, $country',
+            '$state $country',
             style: const TextStyle(
               fontSize: 16,
               color: Color.fromARGB(255, 77, 77, 77),
